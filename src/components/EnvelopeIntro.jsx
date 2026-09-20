@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { Sparkles, Heart, Gift, ArrowDown, Feather, Video, Volume2, VolumeX, Play, Pause } from 'lucide-react';
 import { soundFX } from '../utils/soundEffects';
@@ -9,6 +9,13 @@ const EnvelopeIntro = ({ herName, onOpen }) => {
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
 
   const toggleVideoPlay = () => {
     if (!videoRef.current) return;
