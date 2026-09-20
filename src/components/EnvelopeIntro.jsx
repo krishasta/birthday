@@ -105,6 +105,7 @@ const EnvelopeIntro = ({ herName, onOpen }) => {
           muted={isVideoMuted}
           playsInline
           webkit-playsinline="true"
+          preload="auto"
           style={{
             width: '100%',
             height: '100%',
@@ -115,7 +116,7 @@ const EnvelopeIntro = ({ herName, onOpen }) => {
             transition: 'opacity 0.5s ease',
           }}
         >
-          <source src="/videos/IMG_5649.MOV" type="video/mp4" />
+          <source src="/videos/IMG_5649.mp4" type="video/mp4" />
           <source src="/videos/IMG_5649.MOV" type="video/quicktime" />
         </video>
         {/* Crisp soft gradient overlay to preserve video clarity & text readability */}

@@ -9,8 +9,6 @@ const VoiceNotePlayer = ({ herName = 'Karthini' }) => {
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
 
-  const audioSrc = "/audio/WhatsApp Ptt 2026-09-20 at 9.46.40 AM.ogg";
-
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -100,12 +98,11 @@ const VoiceNotePlayer = ({ herName = 'Karthini' }) => {
         position: 'relative',
         overflow: 'hidden',
       }}>
-        {/* Hidden HTML5 Audio Element */}
-        <audio
-          ref={audioRef}
-          src={audioSrc}
-          preload="metadata"
-        />
+        {/* Universal Cross-Browser Audio Element */}
+        <audio ref={audioRef} preload="metadata">
+          <source src="/audio/voice-message.mp3" type="audio/mpeg" />
+          <source src="/audio/WhatsApp Ptt 2026-09-20 at 9.46.40 AM.ogg" type="audio/ogg" />
+        </audio>
 
         {/* Ambient Top Glow */}
         <div style={{
