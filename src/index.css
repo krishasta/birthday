@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Mukta+Malar:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap');
+
+:root {
+  /* Royal Peacock Theme Color Tokens */
+  --peacock-blue: #0077b6;
+  --peacock-deep-blue: #023e8a;
+  --peacock-midnight: #011627;
+  --peacock-teal: #0a9396;
+  --peacock-cyan: #00f5d4;
+  --peacock-bright-blue: #00b4d8;
+  --peacock-emerald: #06d6a0;
+  --peacock-deep-emerald: #005f73;
+  --peacock-gold: #ffd166;
+  --peacock-warm-gold: #e5a93c;
+  --peacock-purple: #7209b7;
+  --peacock-dark-surface: rgba(3, 24, 38, 0.75);
+  
+  --primary-color: var(--peacock-bright-blue);
+  --secondary-color: var(--peacock-emerald);
+  --accent-gold: var(--peacock-gold);
+  
+  --glass-bg: rgba(2, 28, 44, 0.72);
+  --glass-border: rgba(0, 245, 212, 0.22);
+  --glass-highlight: rgba(0, 245, 212, 0.25);
+  --text-primary: #ffffff;
+  --text-secondary: #c8f4f9;
+  --text-muted: #7ec2cb;
+  
+  --font-main: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-hand: 'Caveat', cursive;
+  --font-script: 'Dancing Script', cursive;
+  --font-romantic: 'Great Vibes', cursive;
+  --font-tamil: 'Mukta Malar', 'Noto Sans Tamil', var(--font-main);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-main);
+  background: radial-gradient(ellipse at top, #06283d 0%, #031b28 45%, #010d14 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Custom Peacock Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #010d14;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--peacock-bright-blue), var(--peacock-emerald), var(--peacock-gold));
+  border-radius: 4px;
+}
+
+/* Peacock Ambient Shimmer Nebula */
+.bg-ambient-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 20px 30px, #00f5d4, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 100px 150px, #ffd166, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 250px 80px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 380px 220px, #06d6a0, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 520px 130px, #00b4d8, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 700px 300px, #ffd166, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 850px 90px, #00f5d4, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 980px 240px, #7209b7, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 1000px 400px;
+  opacity: 0.65;
+  animation: twinklePeacock 6s ease-in-out infinite alternate;
+}
+
+@keyframes twinklePeacock {
+  0% { opacity: 0.4; transform: scale(0.99); }
+  100% { opacity: 0.85; transform: scale(1.01); }
+}
+
+/* Floating Peacock Particles */
+.floating-particle-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-particle {
+  position: absolute;
+  bottom: -40px;
+  color: rgba(0, 245, 212, 0.7);
+  user-select: none;
+  animation: floatUpward linear infinite;
+  filter: drop-shadow(0 0 6px rgba(0, 245, 212, 0.4));
+}
+
+@keyframes floatUpward {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-115vh) rotate(360deg) scale(1.15);
+    opacity: 0;
+  }
+}
+
+/* Glassmorphic Peacock Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55),
+              0 0 35px rgba(0, 245, 212, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 245, 212, 0.45);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65),
+              0 0 40px rgba(0, 245, 212, 0.25);
+}
+
+/* Glowing text effects */
+.glow-text {
+  text-shadow: 0 0 15px rgba(0, 245, 212, 0.7),
+               0 0 30px rgba(0, 180, 216, 0.4);
+}
+
+.glow-gold {
+  text-shadow: 0 0 15px rgba(255, 209, 102, 0.7),
+               0 0 30px rgba(229, 169, 60, 0.45);
+}
+
+.glow-emerald {
+  text-shadow: 0 0 15px rgba(6, 214, 160, 0.7),
+               0 0 30px rgba(10, 147, 150, 0.45);
+}
+
+/* Polaroid Card Styles */
+.polaroid-card {
+  background: #fdfcf7;
+  padding: 14px 14px 22px 14px;
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #e2ece9;
+}
+
+.polaroid-card:hover {
+  transform: translateY(-8px) scale(1.03) rotate(0deg) !important;
+  box-shadow: 0 22px 42px rgba(0, 245, 212, 0.3),
+              0 8px 16px rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+
+.polaroid-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 90px;
+  height: 26px;
+  background: rgba(218, 244, 240, 0.88);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  clip-path: polygon(4% 0%, 96% 0%, 100% 100%, 0% 100%);
+  z-index: 2;
+  border-bottom: 1px solid rgba(6, 214, 160, 0.3);
+}
+
+.polaroid-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #061822;
+}
+
+.polaroid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.polaroid-card:hover .polaroid-image {
+  transform: scale(1.05);
+}
+
+.polaroid-caption {
+  font-family: var(--font-hand);
+  color: #06283d;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 14px;
+  letter-spacing: 0.5px;
+}
+
+.polaroid-date {
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  color: #4a7c88;
+  text-align: center;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Royal Peacock Wax Seal */
+.wax-seal {
+  width: 72px;
+  height: 72px;
+  background: radial-gradient(circle at 35% 35%, #00b4d8, #005f73 70%, #012a36);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd166;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -3px 6px rgba(0,0,0,0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px dashed rgba(255, 209, 102, 0.6);
+}
+
+.wax-seal:hover {
+  transform: scale(1.12) rotate(6deg);
+  box-shadow: 0 10px 28px rgba(0, 245, 212, 0.6), inset 0 2px 4px rgba(255,255,255,0.5);
+}
+
+/* Custom Peacock Buttons */
+.btn-romantic {
+  background: linear-gradient(135deg, #00b4d8 0%, #06d6a0 50%, #d4af37 100%);
+  color: #011627;
+  font-weight: 700;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 180, 216, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-romantic:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 245, 212, 0.65);
+  color: #000;
+}
+
+.btn-romantic:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-outline-romantic {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  border: 1px solid rgba(0, 245, 212, 0.35);
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-outline-romantic:hover {
+  background: rgba(0, 245, 212, 0.15);
+  border-color: var(--peacock-cyan);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 245, 212, 0.8), 0 0 60px rgba(6, 214, 160, 0.45);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* Royal Peacock Glowing Manuscript Letter Styles */
+.royal-letter-manuscript {
+  background: linear-gradient(165deg, rgba(3, 30, 48, 0.94) 0%, rgba(2, 20, 32, 0.97) 50%, rgba(1, 14, 23, 0.99) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1.5px solid rgba(0, 245, 212, 0.38);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 
+              0 0 50px rgba(0, 245, 212, 0.18), 
+              inset 0 0 60px rgba(0, 245, 212, 0.04);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.royal-letter-manuscript:hover {
+  border-color: rgba(0, 245, 212, 0.55);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 
+              0 0 60px rgba(0, 245, 212, 0.28);
+}
+
+.tamil-text {
+  font-family: var(--font-tamil);
+  line-height: 1.95;
+  letter-spacing: 0.3px;
+}
+
+/* Mobile Responsiveness Improvements */
+@media (max-width: 640px) {
+  .royal-letter-manuscript {
+    border-radius: 18px;
+    padding: 22px 14px !important;
+  }
+
+  .glass-card {
+    border-radius: 18px;
+    padding: 20px 14px;
+  }
+
+  .btn-romantic, .btn-outline-romantic {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+
+  .video-control-pill {
+    top: 12px !important;
+    right: 12px !important;
+    padding: 4px 8px !important;
+  }
+
+  .video-text {
+    display: none;
+  }
+
+  .floating-particle {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-envelope-section {
+    padding-top: 60px !important;
+  }
+
+  .wax-seal {
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn-romantic, .btn-outline-romantic {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+}
