@@ -25,6 +25,7 @@ const VoiceNotePlayer = ({ herName = 'Karthini' }) => {
     const handleEnded = () => {
       setIsPlaying(false);
       setCurrentTime(0);
+      window.dispatchEvent(new CustomEvent('play-bg-music'));
     };
 
     audio.addEventListener('loadeddata', setAudioData);
@@ -45,7 +46,7 @@ const VoiceNotePlayer = ({ herName = 'Karthini' }) => {
       setIsPlaying(false);
     } else {
       // Temporarily pause background music so voice note is crystal clear
-      soundFX.stopRomanticBGM();
+      window.dispatchEvent(new CustomEvent('pause-bg-music'));
       audioRef.current.play().catch(e => console.log(e));
       setIsPlaying(true);
     }

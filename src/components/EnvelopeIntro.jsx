@@ -38,7 +38,7 @@ const EnvelopeIntro = ({ herName, onOpen }) => {
     if (isOpen) return;
     setIsOpen(true);
     soundFX.playChime();
-    soundFX.startRomanticBGM();
+    window.dispatchEvent(new CustomEvent('play-bg-music'));
 
     // Fire Peacock Confetti explosion (Teal, Cyan, Emerald, Gold, Purple)
     const count = 220;
